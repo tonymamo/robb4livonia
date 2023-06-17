@@ -1,0 +1,230 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+import ContactCTA from "../components/ContactCTA.astro"
+import Hero from "../components/Hero.astro"
+
+const inputClasses = "block w-full rounded-[3px] border p-2.5 focus:ring"
+---
+
+<BaseLayout title="How can I help? | Robb 4 Livonia">
+  <div class="stack gap-20">
+    <main class="wrapper about">
+      <Hero
+        title="How can I help?"
+        tagline="Fill out the form below to get connected with Robb on how to help."
+      />
+
+      <section>
+        <h2 class="section-title"></h2>
+        <div class="content">
+          <form
+            name="how-can-i-help"
+            data-netlify="true"
+            method="POST"
+            action="/contact/success"
+            netlify-honeypot="bot-field"
+            id="how-can-i-help-form"
+            aria-hidden="true"
+          >
+            <input type="hidden" name="form-name" value="how-can-i-help" />
+            <p class="hidden">
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
+            <div class="mb-4">
+              <label for="name" class="mb-2 block">Your name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class={inputClasses}
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="email" class="mb-2 block">Your email *</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                class={inputClasses}
+              />
+            </div>
+            <div class="mb-4">
+              <label for="phone" class="mb-2 block">Your phone number *</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                required
+                class={inputClasses}
+              />
+            </div>
+            <div class="mb-4">
+              <label for="address" class="mb-2 block">Your address *</label>
+              <input
+                type="text"
+                name="address"
+                id="address"
+                required
+                class={inputClasses}
+              />
+            </div>
+            <div class="mb-4">
+              <label class="mb-2 block">How I can help *</label>
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="donate"
+                value="Donate"
+              />
+              <label for="donate" class="cursor-pointer mb-2 inline-block pl-2"
+                >Donate</label
+              >
+              <br />
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="host"
+                value="Host a House Party"
+              />
+              <label for="host" class="cursor-pointer mb-2 inline-block pl-2"
+                >Host a House Party</label
+              >
+              <br />
+
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="attend"
+                value="Attend an Upcoming Event"
+              />
+              <label for="attend" class="cursor-pointer mb-2 inline-block pl-2"
+                >Attend an Upcoming Event</label
+              >
+              <br />
+
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="sign"
+                value="Have a Sign In My Yard"
+              />
+              <label for="sign" class="cursor-pointer mb-2 inline-block pl-2"
+                >Have a Sign In My Yard</label
+              >
+              <br />
+
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="knock"
+                value="Knock Doors and Spread the Word"
+              />
+              <label for="knock" class="cursor-pointer mb-2 inline-block pl-2"
+                >Knock Doors and Spread the Word</label
+              >
+              <br />
+
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="postcard-party"
+                value="Be a Part of a “Post Card Party”"
+              />
+              <label
+                for="postcard-party"
+                class="cursor-pointer mb-2 inline-block pl-2"
+                >Be a Part of a “Post Card Party”</label
+              >
+              <br />
+
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="text-party"
+                value="Be a Part of a “Text Messaging Party”"
+              />
+              <label
+                for="text-party"
+                class="cursor-pointer mb-2 inline-block pl-2"
+                >Be a Part of a “Text Messaging Party”</label
+              >
+              <br />
+            </div>
+            <p class="text-right">
+              <button
+                type="submit"
+                class="rounded-[3px] border-2 px-4 py-2 transition-colors focus:ring"
+                >Submit</button
+              >
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  img {
+    margin-top: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--gray-200);
+  }
+
+  .section-title {
+    grid-column-start: 1;
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+  }
+
+  .content {
+    grid-column: 2 / 2;
+  }
+
+  .content :global(a) {
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  .content :global(a:hover),
+  .content :global(a:focus) {
+    text-decoration-color: currentColor;
+  }
+
+  @media (min-width: 50em) {
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 60% 1fr;
+    }
+
+    .about > :global(:first-child) {
+      grid-column-start: 2;
+    }
+
+    section {
+      display: contents;
+      font-size: var(--text-lg);
+    }
+  }
+</style>

@@ -1,15 +1,15 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css"
 
 interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
+  title?: string | undefined
+  description?: string | undefined
 }
 
 const {
-	title = 'Jeanine White: Personal Site',
-	description = 'The personal site of Jeanine White',
-} = Astro.props;
+  title = "Robb 4 Livonia - Leader, Advocate, Father",
+  description = "Robb Drzewicki is a leader, advocate, and father running for Livonia City Council in 2023.",
+} = Astro.props
 ---
 
 <meta charset="UTF-8" />
@@ -22,11 +22,11 @@ const {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-	href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
-	rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
+  rel="stylesheet"
 />
 
-<script is:inline>
+<!-- <script is:inline>
 	// This code is inlined in the head to make dark mode instant & blocking.
 	const getThemePreference = () => {
 		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -45,4 +45,4 @@ const {
 		});
 		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 	}
-</script>
+</script> -->
