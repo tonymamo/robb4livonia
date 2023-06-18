@@ -20,14 +20,6 @@ const { title, description } = Astro.props
     <MainHead title={title} description={description} />
   </head>
   <body>
-    <div id="fb-root"></div>
-    <script
-      is:inline
-      async
-      defer
-      crossorigin="anonymous"
-      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=335885727718265&autoLogAppEvents=1"
-      nonce="ydf5LBhl"></script>
     <div class="stack backgrounds">
       <Nav />
       <slot />
@@ -69,7 +61,7 @@ const { title, description } = Astro.props
       :root.loaded {
         --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-800w copy.jpg");
         --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-800w copy.jpg");
-        --bg-image-footer: url("/assets/backgrounds/bg-footer-light-800w.jpg");
+        --bg-image-footer: url("/assets/backgrounds/bg-footer-light-800w copy.jpg");
       }
       /* :root.loaded.theme-dark {
         --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-dark-800w.jpg");
@@ -89,7 +81,7 @@ const { title, description } = Astro.props
         :root.loaded {
           --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-1440w copy.jpg");
           --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-1440w copy.jpg");
-          --bg-image-footer: url("/assets/backgrounds/bg-footer-light-1440w.jpg");
+          --bg-image-footer: url("/assets/backgrounds/bg-footer-light-1440w copy.jpg");
         }
         /* :root.loaded.theme-dark {
           --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-dark-1440w.jpg");

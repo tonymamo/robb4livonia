@@ -6,7 +6,7 @@ import ThemeToggle from "./ThemeToggle.astro"
 const textLinks: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
-  { label: "How can I Help?", href: "/help/" },
+  { label: "How Can I Help?", href: "/help/" },
   { label: "Donate Now", href: "/donate/" },
 ]
 
@@ -138,6 +138,7 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 
   .site-title img {
     width: 200px;
+    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
   }
 
   .menu-button {

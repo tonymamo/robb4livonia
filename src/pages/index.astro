@@ -29,14 +29,21 @@ const projects = (await getCollection("work"))
   <div class="stack gap-20 lg:gap-48">
     <div class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">
-        <Hero
-          title="Hello, my name is Robb Drzewicki."
-          tagline="I'm running for Livonia City Council. Join me in helping shape the future of our community."
-          align="start"
-        />
+        <div>
+          <Hero
+            title="Hello, my name is Robb Drzewicki."
+            tagline="I'm running for Livonia City Council. Join me in helping shape the future of our community."
+            align="start"
+          />
+          <a
+            href="/about/"
+            class="inline-block rounded-full mt-4 px-8 py-4 focus:ring bg-[var(--accent-regular)] text-white hover:bg-[var(--accent-regular)]"
+            >Learn more about Robb &rarr;</a
+          >
+        </div>
 
         <img
-          alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+          alt="Robb Drzewicki and his family"
           width="480"
           height="620"
           src="/assets/fam1.jpg"
@@ -49,33 +56,9 @@ const projects = (await getCollection("work"))
     <main class="wrapper stack gap-20 lg:gap-48">
       <section class="section with-background with-cta">
         <header class="section-header stack gap-2 lg:gap-4">
-          <h3>Selected Work</h3>
-          <p>
-            Take a look below at some of my featured work for clients from the
-            past few years.
-          </p>
+          <h3>Some heading here</h3>
+          <p>Robb around town being a good dude and helping people and stuff</p>
         </header>
-
-        <div
-          class="fb-page"
-          data-href="https://www.facebook.com/robb4livonia"
-          data-tabs="timeline"
-          data-width=""
-          data-height=""
-          data-small-header="false"
-          data-adapt-container-width="true"
-          data-hide-cover="false"
-          data-show-facepile="true"
-        >
-          <blockquote
-            cite="https://www.facebook.com/robb4livonia"
-            class="fb-xfbml-parse-ignore"
-          >
-            <a href="https://www.facebook.com/robb4livonia"
-              >Robb Drzewicki for Livonia City Council</a
-            >
-          </blockquote>
-        </div>
 
         <div class="gallery">
           <Grid variant="offset">
@@ -90,36 +73,29 @@ const projects = (await getCollection("work"))
         </div>
 
         <div class="cta">
-          <CallToAction href="/work/">
+          <!-- <CallToAction href="/work/">
             View All
             <Icon icon="arrow-right" size="1.2em" />
-          </CallToAction>
+          </CallToAction> -->
         </div>
       </section>
 
       <section class="section with-background bg-variant">
         <header class="section-header stack gap-2 lg:gap-4">
-          <h3>Mentions</h3>
-          <p>
-            I have been fortunate enough to recieve praise for my work in
-            several publications. Take a look below to learn more.
-          </p>
+          <h3>Quick Stats</h3>
+          <p>Here's a spot we can call out some info or values or something</p>
         </header>
 
         <div class="gallery">
           <Grid variant="small">
             {
-              [
-                "Medium",
-                "BuzzFeed",
-                "The Next Web",
-                "awwwards.",
-                "TechCrunch",
-              ].map((brand) => (
-                <li class="mention-card">
-                  <p>{brand}</p>
-                </li>
-              ))
+              ["Thing 1", "Thing 2", "Thing 3", "Thing 4", "Thing 5"].map(
+                (brand) => (
+                  <li class="mention-card">
+                    <p>{brand}</p>
+                  </li>
+                )
+              )
             }
           </Grid>
         </div>
@@ -193,8 +169,7 @@ const projects = (await getCollection("work"))
     aspect-ratio: calc(2.25 / var(--bg-scale));
     top: 0;
     transform: translateY(-75%) translateX(-50%);
-    background: url("/assets/backgrounds/noise.png") top center/220px repeat,
-      var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+    background: var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
       var(--gray-999);
     background-blend-mode: overlay, normal, normal, normal;
     mix-blend-mode: var(--bg-blend-mode);
