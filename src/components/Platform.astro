@@ -1,0 +1,40 @@
+---
+import Skills from "./Skills.astro"
+---
+
+<section class="max-w-[65ch] mb-4 text-center mx-auto">
+  <header class="stack gap-2 lg:gap-4">
+    <h3 class="text-5xl">Platform</h3>
+    <p>
+      My children are growing up less than a mile away from their grandparents.
+      My dream is that they make the same choice I did, and raise their children
+      here. In order to do that, it's important that our community is labeled as <b
+        >SAFE</b
+      >, <b>WELCOMING</b>, and <b>PROSPEROUS</b>.
+    </p>
+  </header>
+</section>
+<Skills
+  iconSize="4em"
+  iconColor="var(--accent-light)"
+  skills={[
+    {
+      title: "Safe",
+      content:
+        "Our Police and Fire Departments are incredibly important. While we've made some great strides over the past few years, there's still more work to be done. Let's retain our great first responders and recruit the brightest and the best to back them up.",
+      icon: "shield-check",
+    },
+    {
+      title: "Welcoming",
+      content:
+        "The most recent iteration of our City Council was unable to pass a simple update to our non-discrimination ordinance. As written, I can't say I would have supported it either. However, Livonia needs to make it clear that we're a community that cares about ALL people. I personally believe that this starts with leadership rather than legislation, but I'm excited to engage my City Council contemporaries in the conversation about civil rights in the 21st century.",
+      icon: "house-line",
+    },
+    {
+      title: "Prosperous",
+      content:
+        "Welcoming people is one thing, but welcoming commerce is another thing all together. It's 2023. It's time to look to the next stage of growth for our community. We've got too many vacant and blighted strip malls. While City Council isn't in the business of developing land, it should be in the business of engaging with those that do. Our Vision 21 Master Plan is a great outline. Let's stop talking and start building.",
+      icon: "storefront",
+    },
+  ]}
+/>

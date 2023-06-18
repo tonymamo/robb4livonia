@@ -15,11 +15,60 @@ import PortfolioPreview from "../components/PortfolioPreview.astro"
 // Page section components
 import ContactCTA from "../components/ContactCTA.astro"
 import Skills from "../components/Skills.astro"
+import Platform from "../components/Platform.astro"
 
 // Content Fetching: List four most recent work projects
-const projects = (await getCollection("work"))
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-  .slice(0, 4)
+const projects = (await getCollection("work")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+)
+
+const endorsements = [
+  {
+    name: "Mark Johnson",
+    image: "/assets/endorsements/markjohnson.jpeg",
+    title: "President, Livonia Public Schools Board",
+  },
+  {
+    name: "Karen Bradford",
+    image: "/assets/endorsements/karenbradford.jpeg",
+    title: "Vice President, Livonia Public Schools Board",
+  },
+  {
+    name: "Madeline Acosta",
+    image: "/assets/endorsements/madelineacosta.jpeg",
+    title: "Livonia Public Schools Board of Trustees",
+  },
+  {
+    name: "Colleen Burton",
+    image: "/assets/endorsements/colleenburton.jpeg",
+    title: "Livonia Public Schools Board of Trustees",
+  },
+  {
+    name: "Liz Jarvis",
+    image: "/assets/endorsements/lizjarvis.jpeg",
+    title: "Livonia Public Schools Board of Trustees",
+  },
+  {
+    name: "Dayna Polehanki",
+    image: "/assets/endorsements/daynapolehanki.jpeg",
+    title: "State Senator",
+  },
+  {
+    name: "Matt Koleszar",
+    image: "/assets/endorsements/mattkoleszar.jpeg",
+    title: "State Representative",
+  },
+  {
+    name: "Timothy Klisz",
+    image: "/assets/endorsements/timothyklisz.jpeg",
+    title: "Zoning Board of Appeals",
+  },
+  {
+    name: "Tamara Oliviero",
+    image: "/assets/endorsements/tamaraoliviero.jpeg",
+    title: "Zoning Board of Appeals",
+  },
+]
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -50,13 +99,36 @@ const projects = (await getCollection("work"))
         />
       </header>
 
-      <Skills />
+      <Skills
+        iconSize="2.5em"
+        iconColor="var(--accent-regular)"
+        skills={[
+          {
+            title: "Leader",
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+            icon: "trophy",
+          },
+          {
+            title: "Advocate",
+            content:
+              "Neque viverra justo nec ultrices dui. Est ultricies integer quis auctor elit.",
+            icon: "microphone-stage",
+          },
+          {
+            title: "Father",
+            content:
+              "Urna porttitor rhoncus dolor purus non enim praesent ornare.",
+            icon: "baby",
+          },
+        ]}
+      />
     </div>
 
     <main class="wrapper stack gap-20 lg:gap-48">
       <section class="section with-background with-cta">
         <header class="section-header stack gap-2 lg:gap-4">
-          <h3>Some heading here</h3>
+          <h3>Work in the Community</h3>
           <p>Robb around town being a good dude and helping people and stuff</p>
         </header>
 
@@ -80,22 +152,30 @@ const projects = (await getCollection("work"))
         </div>
       </section>
 
+      <Platform />
+
       <section class="section with-background bg-variant">
         <header class="section-header stack gap-2 lg:gap-4">
-          <h3>Quick Stats</h3>
-          <p>Here's a spot we can call out some info or values or something</p>
+          <h3>Endorsements</h3>
+          <p>I'm proud to have the support of these great people.</p>
         </header>
 
         <div class="gallery">
           <Grid variant="small">
             {
-              ["Thing 1", "Thing 2", "Thing 3", "Thing 4", "Thing 5"].map(
-                (brand) => (
-                  <li class="mention-card">
-                    <p>{brand}</p>
-                  </li>
-                )
-              )
+              endorsements.map((person) => (
+                <li class="mention-card">
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    class="w-16 h-16 rounded-full mb-2"
+                  />
+                  <p class="font-bold text-lg">{person.name}</p>
+                  <p>
+                    <em>{person.title}</em>
+                  </p>
+                </li>
+              ))
             }
           </Grid>
         </div>
@@ -230,7 +310,7 @@ const projects = (await getCollection("work"))
 
   .mention-card {
     display: flex;
-    height: 7rem;
+    height: 12rem;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -239,12 +319,14 @@ const projects = (await getCollection("work"))
     color: var(--gray-300);
     background: var(--gradient-subtle);
     box-shadow: var(--shadow-sm);
+    flex-direction: column;
+    padding: 2rem;
   }
 
   @media (min-width: 50em) {
     .mention-card {
       border-radius: 1.5rem;
-      height: 9.5rem;
+      height: 15rem;
     }
   }
 </style>
