@@ -48,9 +48,8 @@ const { title, description } = Astro.props
         --bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
         --bg-gradient-size: calc(var(--bg-scale) * 100%);
 
-        @supports (
-          background-image: url("/assets/backgrounds/bg-main-light-800w.webp")
-        ) {
+        /* If gap is supported, then so is webp */
+        @supports (gap: 1px) {
           --bg-image-main: url("/assets/backgrounds/bg-main-light-800w.webp");
         }
       }
@@ -62,10 +61,7 @@ const { title, description } = Astro.props
         --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-800w.jpg");
         --bg-image-footer: url("/assets/backgrounds/bg-footer-light-800w.jpg");
 
-        @supports (
-          background-image:
-            url("/assets/backgrounds/bg-subtle-1-light-800w.webp")
-        ) {
+        @supports (gap: 1px) {
           --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-800w.webp");
           --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-800w.webp");
           --bg-image-footer: url("/assets/backgrounds/bg-footer-light-800w.webp");
@@ -77,10 +73,7 @@ const { title, description } = Astro.props
           --bg-scale: 1;
           --bg-image-main: url("/assets/backgrounds/bg-main-light-1440w.jpg");
 
-          @supports (
-            background-image:
-              url("/assets/backgrounds/bg-main-light-1440w.webp")
-          ) {
+          @supports (gap: 1px) {
             --bg-image-main: url("/assets/backgrounds/bg-main-light-1440w.webp");
           }
         }
@@ -90,10 +83,7 @@ const { title, description } = Astro.props
           --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-1440w.jpg");
           --bg-image-footer: url("/assets/backgrounds/bg-footer-light-1440w.jpg");
 
-          @supports (
-            background-image:
-              url("/assets/backgrounds/bg-subtle-1-light-1440w.webp")
-          ) {
+          @supports (gap: 1px) {
             --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-1440w.webp");
             --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-1440w.webp");
             --bg-image-footer: url("/assets/backgrounds/bg-footer-light-1440w.webp");
