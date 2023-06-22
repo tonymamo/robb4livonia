@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import ContactCTA from "../components/ContactCTA.astro"
 import Hero from "../components/Hero.astro"
 import Platform from "../components/Platform.astro"
+import Grid from "../components/Grid.astro"
 ---
 
 <BaseLayout title="About | Robb 4 Livonia">
@@ -88,18 +89,25 @@ import Platform from "../components/Platform.astro"
             and hard-working people in the world. Join me in helping shape the
             future of our community.
           </p>
-          <p class="flex justify-around">
+
+          <Grid variant="offset">
             <img
               src="/assets/baldricks.jpg"
-              alt="Robb Drzewicki and his family planting a tree"
-              class="w-2/5"
+              alt="Robb at a St. Baldrick's event raising money for childhood cancer research."
             />
             <img
               src="/assets/PTA-Chili.jpg"
-              alt="Robb Drzewicki and his family planting a tree"
-              class="w-2/5"
+              alt="Robb Drzewicki at the PTSA Chili Cookoff"
             />
-          </p>
+            <img
+              src="/assets/baldricks-dennis.jpg"
+              alt="Robb Drzewicki getting his head shaved by Dennis for St. Baldrick's"
+            />
+            <img
+              src="/assets/fam1.jpg"
+              alt="Robb Drzewicki and his family outside in the woods"
+            />
+          </Grid>
         </div>
       </section>
     </main>
