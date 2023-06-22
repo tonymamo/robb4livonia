@@ -1,10 +1,9 @@
 ---
+import { Image } from "@astrojs/image/components"
 import BaseLayout from "../layouts/BaseLayout.astro"
 
 import ContactCTA from "../components/ContactCTA.astro"
 import Hero from "../components/Hero.astro"
-
-const inputClasses = "block w-full rounded-[3px] border p-2.5 focus:ring"
 ---
 
 <BaseLayout title="Success | Robb 4 Livonia">
@@ -19,11 +18,14 @@ const inputClasses = "block w-full rounded-[3px] border p-2.5 focus:ring"
             possible!
           </p>
           <p>- Robb</p>
-          <img
+          <Image
+            width={768}
+            height={1024}
+            format="webp"
             src="/assets/Meijer-Gardens-scaled.jpg"
+            class="mb-16"
             alt="Robb and his family outside Meijer Gardens"
           />
-          <br />
         </div>
       </section>
     </main>

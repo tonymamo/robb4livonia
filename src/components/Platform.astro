@@ -9,7 +9,7 @@ const { location } = Astro.props
 
 <section class="max-w-[65ch] mb-4 text-center mx-auto">
   <header class="stack gap-2 lg:gap-4">
-    <h3 class="text-5xl">Platform</h3>
+    <h2 class="text-5xl">Platform</h2>
     <p class="text-xl">
       My children are growing up less than a mile away from their grandparents.
       My dream is that they make the same choice I did, and raise their children
@@ -64,14 +64,14 @@ const { location } = Astro.props
     action="/success"
     netlify-honeypot="bot-field"
     id={`what-is-your-4th-${location}`}
-    aria-hidden="true"
   >
     <input
       type="hidden"
+      aria-hidden="true"
       name="form-name"
       value={`what-is-your-4th-${location}`}
     />
-    <p class="hidden">
+    <p class="hidden" aria-hidden="true">
       <label>
         Don't fill this out if you're human: <input name="bot-field" />
       </label>

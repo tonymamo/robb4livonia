@@ -1,5 +1,6 @@
 ---
 import Icon, { Props as IconProps } from "./Icon.astro"
+import { Image } from "@astrojs/image/components"
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
@@ -22,7 +23,12 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 <nav>
   <div class="menu-header">
     <a href="/" class="site-title">
-      <img src="/assets/robb4Livonia-logo2.png" alt="Robb 4 Livonia Logo" />
+      <Image
+        src="/assets/robb4Livonia-logo2.png"
+        alt="Robb 4 Livonia Logo"
+        width={400}
+        height={200}
+      />
     </a>
     <menu-button>
       <template>
@@ -110,7 +116,6 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
   nav {
     z-index: 9999;
     position: relative;
-    font-family: var(--font-brand);
     font-weight: 500;
     margin-bottom: 3.5rem;
   }

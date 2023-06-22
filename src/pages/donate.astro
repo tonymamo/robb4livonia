@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components"
 import BaseLayout from "../layouts/BaseLayout.astro"
 
 import ContactCTA from "../components/ContactCTA.astro"
@@ -13,11 +14,12 @@ import Icon from "../components/Icon.astro"
         title="Donate Now"
         tagline="Thanks for your support—together we can shape the future of Livonia"
       >
-        <img
-          width="1553"
-          height="873"
+        <Image
+          width={768}
+          height={296}
+          format="webp"
           src="/assets/family-seal-cropped-1.png"
-          alt="Robb Drzewicki with his wife and two sons"
+          alt="Robb Drzewicki with his wife and two sons in front of the City of Livonia seal"
         />
       </Hero>
 

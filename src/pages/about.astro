@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components"
 import BaseLayout from "../layouts/BaseLayout.astro"
 
 import ContactCTA from "../components/ContactCTA.astro"
@@ -14,11 +15,12 @@ import Grid from "../components/Grid.astro"
         title="About"
         tagline="Thanks for stopping by. Read below to learn more about myself and my background."
       >
-        <img
-          width="1553"
-          height="873"
+        <Image
+          width={768}
+          height={512}
           src="/assets/family-2.jpg"
           alt="Robb Drzewicki and his family"
+          format="webp"
         />
       </Hero>
 
@@ -58,10 +60,13 @@ import Grid from "../components/Grid.astro"
             the great educational opportunities Livonia has to offer.
           </p>
           <p>
-            <img
+            <Image
+              height={317}
+              width={384}
               src="/assets/tree.jpg"
               alt="Robb Drzewicki and his family planting a tree"
               class="float-right m-8 mr-0 w-1/2"
+              format="webp"
             />
             In 2003, I met my wife, Becky, while we were both working for Applebees.
             We lived briefly in Plymouth and then in Northville, but our lives always
@@ -91,19 +96,31 @@ import Grid from "../components/Grid.astro"
           </p>
 
           <Grid variant="offset">
-            <img
+            <Image
+              width={352}
+              height={362}
+              format="webp"
               src="/assets/baldricks.jpg"
               alt="Robb at a St. Baldrick's event raising money for childhood cancer research."
             />
-            <img
+            <Image
+              width={352}
+              height={447}
+              format="webp"
               src="/assets/PTA-Chili.jpg"
               alt="Robb Drzewicki at the PTSA Chili Cookoff"
             />
-            <img
+            <Image
+              width={352}
+              height={250}
+              format="webp"
               src="/assets/baldricks-dennis.jpg"
               alt="Robb Drzewicki getting his head shaved by Dennis for St. Baldrick's"
             />
-            <img
+            <Image
+              width={352}
+              height={235}
+              format="webp"
               src="/assets/fam1.jpg"
               alt="Robb Drzewicki and his family outside in the woods"
             />

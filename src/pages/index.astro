@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components"
 import BaseLayout from "../layouts/BaseLayout.astro"
 
 import Grid from "../components/Grid.astro"
@@ -95,11 +96,12 @@ const endorsements = [
           >
         </div>
 
-        <img
+        <Image
           alt="Robb Drzewicki and his family"
-          width="480"
-          height="620"
+          width={456}
+          height={608}
           src="/assets/fam1.jpg"
+          format="webp"
         />
       </header>
 
@@ -117,7 +119,10 @@ const endorsements = [
               {
                 endorsements.map((person) => (
                   <li class="mention-card">
-                    <img
+                    <Image
+                      width={64}
+                      height={64}
+                      format="webp"
                       src={person.image}
                       alt={person.name}
                       class="w-16 h-16 rounded-full mb-2"
