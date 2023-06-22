@@ -36,7 +36,7 @@ const { title, description } = Astro.props
     <style>
       :root {
         --_placeholder-bg: linear-gradient(transparent, transparent);
-        --bg-image-main: url("/assets/backgrounds/bg-main-light-800w copy.jpg");
+        --bg-image-main: url("/assets/backgrounds/bg-main-light-800w copy.webp");
         --bg-image-main-curves: url("/assets/backgrounds/bg-main-light.svg");
         --bg-image-subtle-1: var(--_placeholder-bg);
         --bg-image-subtle-2: var(--_placeholder-bg);
@@ -59,9 +59,9 @@ const { title, description } = Astro.props
       /* These backgrounds are displayed below the fold, so we lazy load them
 			   once the `.loaded` class has been set.  */
       :root.loaded {
-        --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-800w copy.jpg");
-        --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-800w copy.jpg");
-        --bg-image-footer: url("/assets/backgrounds/bg-footer-light-800w copy.jpg");
+        --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-800w copy.webp");
+        --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-800w copy.webp");
+        --bg-image-footer: url("/assets/backgrounds/bg-footer-light-800w copy.webp");
       }
       /* :root.loaded.theme-dark {
         --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-dark-800w.jpg");
@@ -72,16 +72,16 @@ const { title, description } = Astro.props
       @media (min-width: 50em) {
         :root {
           --bg-scale: 1;
-          --bg-image-main: url("/assets/backgrounds/bg-main-light-1440w copy.jpg");
+          --bg-image-main: url("/assets/backgrounds/bg-main-light-1440w copy.webp");
         }
         /* :root.theme-dark {
           --bg-image-main: url("/assets/backgrounds/bg-main-dark-1440w.jpg");
         } */
 
         :root.loaded {
-          --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-1440w copy.jpg");
-          --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-1440w copy.jpg");
-          --bg-image-footer: url("/assets/backgrounds/bg-footer-light-1440w copy.jpg");
+          --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-1440w copy.webp");
+          --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-1440w copy.webp");
+          --bg-image-footer: url("/assets/backgrounds/bg-footer-light-1440w copy.webp");
         }
         /* :root.loaded.theme-dark {
           --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-dark-1440w.jpg");
