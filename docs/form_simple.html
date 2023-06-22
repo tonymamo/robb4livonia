@@ -1,0 +1,241 @@
+<meta charset="utf-8"/>
+<!-- Set the form action can be set to the primary candidate url or a campaign hash url -->
+<form action="https://politics.raisethemoney.com/en/rdrzewicki" method="post" id="contribution_form">
+
+  <!-- Set the url you would like contributors to be redirected to after making a contribution -->
+  <input type="hidden" id="success_redirect_to" name="success_redirect_to" value="/">
+  <input type="hidden" id="candidate_id" name="contributor[candidate_id]" value="11897">
+
+
+  <fieldset>
+    <legend>Contact Information</legend>
+
+    <!-- First Name -->
+    <label for="contributor_first_name">First Name</label>
+    <input type="text" name="contributor[first_name]" id="contributor_first_name">
+
+    <!-- Last Name -->
+    <label for="contributor_last_name">Last Name</label>
+    <input type="text" name="contributor[last_name]" id="contributor_last_name">
+
+    <!-- Email -->
+    <label for="contributor_email">Email Address</label>
+    <input type="text" name="contributor[email]" id="contributor_email">
+
+    <!-- Phone -->
+    <label for="contributor_phone">Phone Number</label>
+    <input type="text" name="contributor[phone]" id="contributor_phone">
+
+    <!-- Address 1 -->
+    <label for="contributor_address_1">Address</label>
+    <input type="text" name="contributor[address_1]" id="contributor_address_1">
+
+    <!-- Address 2 -->
+    <label for="contributor_address_2">Address 2</label>
+    <input type="text" name="contributor[address_2]" id="contributor_address_2">
+
+
+    <!-- City -->
+    <label for="contributor_city">City</label>
+    <input type="text" name="contributor[city]" id="contributor_city">
+
+    <!-- State -->
+    <label for="contributor_state">State</label>
+    <select name="contributor[state]" id="contributor_state">
+      <option value=""></option>
+      <option value="AL">Alabama</option>
+      <option value="AK">Alaska</option>
+      <option value="AZ">Arizona</option>
+      <option value="AR">Arkansas</option>
+      <option value="CA">California</option>
+      <option value="CO">Colorado</option>
+      <option value="CT">Connecticut</option>
+      <option value="DE">Delaware</option>
+      <option value="DC">District of Columbia</option>
+      <option value="FL">Florida</option>
+      <option value="GA">Georgia</option>
+      <option value="HI">Hawaii</option>
+      <option value="ID">Idaho</option>
+      <option value="IL">Illinois</option>
+      <option value="IN">Indiana</option>
+      <option value="IA">Iowa</option>
+      <option value="KS">Kansas</option>
+      <option value="KY">Kentucky</option>
+      <option value="LA">Louisiana</option>
+      <option value="ME">Maine</option>
+      <option value="MD">Maryland</option>
+      <option value="MA">Massachusetts</option>
+      <option value="MI">Michigan</option>
+      <option value="MN">Minnesota</option>
+      <option value="MS">Mississippi</option>
+      <option value="MO">Missouri</option>
+      <option value="MT">Montana</option>
+      <option value="NE">Nebraska</option>
+      <option value="NV">Nevada</option>
+      <option value="NH">New Hampshire</option>
+      <option value="NJ">New Jersey</option>
+      <option value="NM">New Mexico</option>
+      <option value="NY">New York</option>
+      <option value="NC">North Carolina</option>
+      <option value="ND">North Dakota</option>
+      <option value="OH">Ohio</option>
+      <option value="OK">Oklahoma</option>
+      <option value="OR">Oregon</option>
+      <option value="PA">Pennsylvania</option>
+      <option value="PR">Puerto Rico</option>
+      <option value="RI">Rhode Island</option>
+      <option value="SC">South Carolina</option>
+      <option value="SD">South Dakota</option>
+      <option value="TN">Tennessee</option>
+      <option value="TX">Texas</option>
+      <option value="UT">Utah</option>
+      <option value="VT">Vermont</option>
+      <option value="VA">Virginia</option>
+      <option value="WA">Washington</option>
+      <option value="WV">West Virginia</option>
+      <option value="WI">Wisconsin</option>
+      <option value="WY">Wyoming</option>
+    </select>
+
+    <!-- Zip -->
+    <label for="contributor_zip">Zip</label>
+    <input type="text" name="contributor[zip]" id="contributor_zip">
+  </fieldset>
+
+  <fieldset>
+    <legend>Employer Information</legend>
+
+    <!-- Employer -->
+    <label for="contributor_employer">Employer</label>
+    <input type="text" name="contributor[employer]" id="contributor_employer">
+
+    <!-- Occupation -->
+    <label for="contributor_occupation">Occupation</label>
+    <input type="text" name="contributor[occupation]" id="contributor_occupation">
+  </fieldset>
+
+  <fieldset>
+    <legend>Payment Method</legend>
+
+    <!-- Bank Transfer -->
+    <label class="rtm-inline">
+      <input type="radio" name="contributor[payment_method_choice]" value="ach" checked> Bank Transfer
+    </label>
+
+    <!-- Debit / Credit Card -->
+    <label class="rtm-inline">
+      <input type="radio" name="contributor[payment_method_choice]" value="card"> Debit / Credit Card
+    </label>
+
+    <!-- ACH Fields -->
+    <div class="ach-fields rtm-row">
+      <!-- Routing Number -->
+      <label for="contributor_routing_number">Routing Number</label>
+      <input type="text" name="contributor[routing_number]" id="contributor_routing_number">
+
+      <!-- Account Number -->
+      <label for="contributor_account_number">Account Number</label>
+      <input type="text" name="contributor[account_number]" id="contributor_account_number">
+    </div>
+
+    <!-- Card Fields -->
+    <div class="card-fields rtm-row">
+      <!-- Number -->
+      <label for="contributor_cc_number">Card Number</label>
+      <input type="text" id="contributor_cc_number">
+
+      <!-- Expiration -->
+      <label for="contributor_cc_expiration">Expiration</label>
+      <input type="text" name="contributor[cc_expiration]" id="contributor_cc_expiration">
+
+      <!-- CVV -->
+      <label for="contributor_cc_cvv">CVV</label>
+      <input type="text" id="contributor_cc_cvv">
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Contribution Information</legend>
+
+    <label>Select a contribution amount:</label>
+
+    <!-- $5 -->
+    <input type="radio" name="contributor[amount_choice]" id="contributor_amount_5" value="5">
+    <label for="contributor_amount_5">$5</label>
+
+    <!-- $50 -->
+    <input type="radio" name="contributor[amount_choice]" id="contributor_amount_50" value="50">
+    <label for="contributor_amount_50">$50</label>
+
+    <!-- $100 -->
+    <input type="radio" name="contributor[amount_choice]" id="contributor_amount_100" value="100">
+    <label for="contributor_amount_100">$100</label>
+
+    <!-- $250 -->
+    <input type="radio" name="contributor[amount_choice]" id="contributor_amount_250" value="250">
+    <label for="contributor_amount_250">$250</label>
+
+    <!-- $500 -->
+    <input type="radio" name="contributor[amount_choice]" id="contributor_amount_500" value="500">
+    <label for="contributor_amount_500">$500</label>
+
+    <!-- $1,000 -->
+    <input type="radio" name="contributor[amount_choice]" id="contributor_amount_1000" value="1000">
+    <label for="contributor_amount_1000">$1,000</label>
+
+    <!-- $2,000 -->
+    <input type="radio" name="contributor[amount_choice]" id="contributor_amount_2000" value="2000">
+    <label for="contributor_amount_2000">$2,000</label>
+
+    <!-- $2,600 -->
+    <input type="radio" name="contributor[amount_choice]" id="contributor_amount_2600" value="2600">
+    <label for="contributor_amount_2600">$2,600</label>
+
+    <!-- Other Amount -->
+    <input type="radio" name="contributor[amount_choice]" id="contributor_amount_other" value="other">
+    <label for="contributor_amount_other" class="rtm-inline">
+      Other: <input type="text" name="contributor[amount_other]" placeholder="$">
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Contribution Frequency</legend>
+
+    <!-- One-Time Contribution -->
+    <label class="rtm-radio-indent">
+      <input type="radio" name="contributor[recurring]" value="false" checked>
+      I would like to make a one-time contribution
+    </label>
+
+    <!-- Recurring Contribution -->
+    <label class="rtm-radio-indent">
+      <input type="radio" name="contributor[recurring]" value="true"> Make this contribution monthly:
+      <select name="contributor[frequency_interval]">
+        <option value="election_day">until Election Day</option>
+        <option value="1_months">for 1 month</option>
+        <option value="2_months">for 2 months</option>
+        <option value="3_months">for 3 months</option>
+        <option value="4_months">for 4 months</option>
+        <option value="5_months">for 5 months</option>
+        <option value="6_months">for 6 months</option>
+        <option value="7_months">for 7 months</option>
+        <option value="8_months">for 8 months</option>
+        <option value="9_months">for 9 months</option>
+        <option value="10_months">for 10 months</option>
+        <option value="11_months">for 11 months</option>
+        <option value="12_months">for 12 months</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <!-- Processing errors will show up as text inside of this div -->
+  <div id="contribution_form_errors" style="display: none;"></div>
+
+  <!-- Contribute button -->
+  <input id="submit_contribution" name="commit" type="submit" value="Contribute" data-disable-with="Processing...">
+</form>
+
+<!-- Make sure and include jQuery before the RTM processing script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include the RTM processing script -->
+<script src="rtm-processing.js"></script>

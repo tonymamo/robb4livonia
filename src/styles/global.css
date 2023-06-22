@@ -160,6 +160,11 @@ a {
   color: var(--link-color);
 }
 
+a svg,
+button svg {
+  display: inline;
+}
+
 h1,
 h2,
 h3,

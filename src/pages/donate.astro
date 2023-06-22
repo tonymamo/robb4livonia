@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 
 import ContactCTA from "../components/ContactCTA.astro"
 import Hero from "../components/Hero.astro"
+import Icon from "../components/Icon.astro"
 ---
 
 <BaseLayout title="Donate | Robb 4 Livonia">
@@ -10,7 +11,7 @@ import Hero from "../components/Hero.astro"
     <main class="wrapper about">
       <Hero
         title="Donate Now"
-        tagline="Thanks for your interest in supporting my campaign!"
+        tagline="Thanks for your support—together we can shape the future of Livonia"
       >
         <img
           width="1553"
@@ -21,12 +22,46 @@ import Hero from "../components/Hero.astro"
       </Hero>
 
       <section>
-        <h2 class="section-title"></h2>
         <div class="content">
-          <p>donation form goes here</p>
+          <script is:inline type="text/javascript">
+            ;(function () {
+              var scripts = document.getElementsByTagName("script"),
+                thisScriptTag = scripts[scripts.length - 1],
+                iframe = document.createElement("iframe")
+
+              thisScriptTag.parentNode.insertBefore(iframe, thisScriptTag)
+              iframe.src =
+                "https://politics.raisethemoney.com/en/rdrzewicki/w?iframe=true"
+              iframe.width = "100%"
+              iframe.scrolling = "no"
+              iframe.setAttribute("seamless", true)
+              iframe.setAttribute("frameBorder", 0)
+
+              window.addEventListener("message", function (e) {
+                iframe.height = e.data
+              })
+            })()
+          </script>
         </div>
       </section>
     </main>
+  </div>
+  <div class="items-center max-w-[65ch] my-24 mx-auto text-center">
+    <header class="gap-6 flex flex-col">
+      <h3 class="text-5xl">Get Involved</h3>
+      <p class="text-xl">
+        Interested in helping out in another way? Learn more about how you can
+        help, whether that's hosting a party, attending an event, putting a sign
+        in your yard, or texting fellow Livonians to spread the word.
+      </p>
+      <div>
+        <a
+          href="/help/"
+          class="inline-block rounded-full mt-4 px-8 py-4 focus:ring bg-[var(--accent-regular)] text-white hover:bg-[var(--accent-regular)]"
+          >Help <Icon icon="arrow-right" size="1.2em" /></a
+        >
+      </div>
+    </header>
   </div>
 
   <ContactCTA />
@@ -59,7 +94,7 @@ import Hero from "../components/Hero.astro"
   }
 
   .content {
-    grid-column: 2 / 4;
+    grid-column: 2 / 2;
   }
 
   .content :global(a) {

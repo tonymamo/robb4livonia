@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RTM Developer Embed Kit — Robb Drzewicki</title>
+    <link href="./documentation.css" media="all" rel="stylesheet" />
+    <meta charset="utf-8" />
+  </head>
+  <body class="markdown-body">
+    <h1>
+      RTM Developer Embed Kit
+      <small>for Robb Drzewicki</small>
+    </h1>
+
+    <h2>Links to Secure Contribution Form</h2>
+    <table>
+      <tr>
+        <th>Standard Contribution Form</th>
+        <th>Wizard Contribution Form</th>
+        <th>Quick Contribute Form</th>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://politics.raisethemoney.com/en/rdrzewicki"
+            >https://politics.raisethemoney.com/en/rdrzewicki</a
+          >
+        </td>
+        <td>
+          <a href="https://politics.raisethemoney.com/en/rdrzewicki/w"
+            >https://politics.raisethemoney.com/en/rdrzewicki/w</a
+          >
+        </td>
+        <td>
+          <a href="https://politics.raisethemoney.com/en/rdrzewicki/q"
+            >https://politics.raisethemoney.com/en/rdrzewicki/q</a
+          >
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      The <code>/w</code> and <code>/q</code> trigger alternate versions of the
+      contribution form. You can also append <code>?iframe</code> to trigger an
+      alternate version of the contribution form that is designed to fit
+      seamlessly into a website design. Examples of this are:
+    </p>
+    <ul>
+      <li>
+        <a href="https://politics.raisethemoney.com/en/rdrzewicki?iframe=true"
+          >https://politics.raisethemoney.com/en/rdrzewicki?iframe=true</a
+        >
+      </li>
+      <li>
+        <a href="https://politics.raisethemoney.com/en/rdrzewicki/w?iframe=true"
+          >https://politics.raisethemoney.com/en/rdrzewicki/w?iframe=true</a
+        >
+      </li>
+    </ul>
+
+    <h2>Standard Embed Code</h2>
+    <p>
+      This code allows you to embed the contribution for directly into your
+      website. You will want to replace the <code>iframe.src</code> with a link
+      to the contribution form you would like to use. Make sure and append
+      <code>?iframe=true</code> to the url to ensure a seamless design.
+    </p>
+
+    <pre><code class="language-markup">  &lt;script type=&quot;text/javascript&quot;&gt;
+    (function(){
+      var scripts = document.getElementsByTagName(&#39;script&#39;),
+          thisScriptTag = scripts[scripts.length - 1],
+          iframe = document.createElement(&#39;iframe&#39;);
+
+      thisScriptTag.parentNode.insertBefore(iframe, thisScriptTag);
+      iframe.src = &#39;https://politics.raisethemoney.com/en/rdrzewicki/w?iframe=true&#39;;
+      iframe.width = &#39;100%&#39;; iframe.scrolling = &#39;no&#39;;
+      iframe.setAttribute(&#39;seamless&#39;, true);
+      iframe.setAttribute(&#39;frameBorder&#39;, 0);
+
+      window.addEventListener(&#39;message&#39;, function(e) {
+        iframe.height = e.data;
+      });
+    })();
+  &lt;/script&gt;
+</code></pre>
+
+    <h2>Embedding the Form in a WordPress website</h2>
+    <p>
+      The standard embed code does not work directly with a WordPress website,
+      as they do not allow javascript snippets to be dropped directly into the
+      content box. Our plugin enables you to drop a shortcode anywhere in your
+      WordPress website to have the form displayed.
+    </p>
+
+    <p>
+      <strong>1. Download the WordPress Plugin</strong><br />
+      <a href="https://wordpress.org/plugins/raise-the-money/"
+        >https://wordpress.org/plugins/raise-the-money/</a
+      >
+    </p>
+
+    <p>
+      <strong
+        >2. Place the shortcode anywhere in your WordPress website:</strong
+      >
+    </p>
+    <table>
+      <tr>
+        <th>Standard Contribution Form</th>
+        <td>[raisethemoney site="politics" form="rdrzewicki"]</td>
+      </tr>
+      <tr>
+        <th>Wizard Contribution Form</th>
+        <td>[raisethemoney site="politics" form="rdrzewicki" type="w"]</td>
+      </tr>
+      <tr>
+        <th>Quick Contribute Form</th>
+        <td>[raisethemoney site="politics" form="rdrzewicki" type="q"]</td>
+      </tr>
+    </table>
+
+    <p>
+      The <code>form</code> attribute in the shortcodes above can be replaced
+      with a campaign hash.
+    </p>
+
+    <h2>Fully Customize Contribution Form</h2>
+    <p>
+      This option will allow you complete control over the HTML and CSS of the
+      contribution form. This will allow a completely seamless experience for
+      contributors on your website.
+    </p>
+
+    <p>
+      <strong>Form Simple</strong>
+      <code>form_simple.html</code><br />
+      This is the minimum code for the contribution form. It allows the most
+      flexibility for customization.
+    </p>
+
+    <p>
+      <strong>Form Advanced</strong>
+      <code>form_advanced.html</code><br />
+      There is a secondary version that includes <code>&lt;div&gt;</code> and
+      <code>&lt;span&gt;</code> tags for styling purposes. This version of the
+      form works with <code>rtm-theme.css</code> stylesheet. You can customize
+      the theme for your website, or use it a guideline for crafting your own.
+    </p>
+
+    <pre><code class="language-markup">&lt;meta charset=&quot;utf-8&quot;/&gt;
+&lt;!-- Set the form action can be set to the primary candidate url or a campaign hash url --&gt;
+&lt;form action=&quot;https://politics.raisethemoney.com/en/rdrzewicki&quot; method=&quot;post&quot; id=&quot;contribution_form&quot;&gt;
+
+  &lt;!-- Set the url you would like contributors to be redirected to after making a contribution --&gt;
+  &lt;input type=&quot;hidden&quot; id=&quot;success_redirect_to&quot; name=&quot;success_redirect_to&quot; value=&quot;/&quot;&gt;
+  &lt;input type=&quot;hidden&quot; id=&quot;candidate_id&quot; name=&quot;contributor[candidate_id]&quot; value=&quot;11897&quot;&gt;
+
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Contact Information&lt;/legend&gt;
+
+    &lt;!-- First Name --&gt;
+    &lt;label for=&quot;contributor_first_name&quot;&gt;First Name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[first_name]&quot; id=&quot;contributor_first_name&quot;&gt;
+
+    &lt;!-- Last Name --&gt;
+    &lt;label for=&quot;contributor_last_name&quot;&gt;Last Name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[last_name]&quot; id=&quot;contributor_last_name&quot;&gt;
+
+    &lt;!-- Email --&gt;
+    &lt;label for=&quot;contributor_email&quot;&gt;Email Address&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[email]&quot; id=&quot;contributor_email&quot;&gt;
+
+    &lt;!-- Phone --&gt;
+    &lt;label for=&quot;contributor_phone&quot;&gt;Phone Number&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[phone]&quot; id=&quot;contributor_phone&quot;&gt;
+
+    &lt;!-- Address 1 --&gt;
+    &lt;label for=&quot;contributor_address_1&quot;&gt;Address&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[address_1]&quot; id=&quot;contributor_address_1&quot;&gt;
+
+    &lt;!-- Address 2 --&gt;
+    &lt;label for=&quot;contributor_address_2&quot;&gt;Address 2&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[address_2]&quot; id=&quot;contributor_address_2&quot;&gt;
+
+
+    &lt;!-- City --&gt;
+    &lt;label for=&quot;contributor_city&quot;&gt;City&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[city]&quot; id=&quot;contributor_city&quot;&gt;
+
+    &lt;!-- State --&gt;
+    &lt;label for=&quot;contributor_state&quot;&gt;State&lt;/label&gt;
+    &lt;select name=&quot;contributor[state]&quot; id=&quot;contributor_state&quot;&gt;
+      &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;AL&quot;&gt;Alabama&lt;/option&gt;
+      &lt;option value=&quot;AK&quot;&gt;Alaska&lt;/option&gt;
+      &lt;option value=&quot;AZ&quot;&gt;Arizona&lt;/option&gt;
+      &lt;option value=&quot;AR&quot;&gt;Arkansas&lt;/option&gt;
+      &lt;option value=&quot;CA&quot;&gt;California&lt;/option&gt;
+      &lt;option value=&quot;CO&quot;&gt;Colorado&lt;/option&gt;
+      &lt;option value=&quot;CT&quot;&gt;Connecticut&lt;/option&gt;
+      &lt;option value=&quot;DE&quot;&gt;Delaware&lt;/option&gt;
+      &lt;option value=&quot;DC&quot;&gt;District of Columbia&lt;/option&gt;
+      &lt;option value=&quot;FL&quot;&gt;Florida&lt;/option&gt;
+      &lt;option value=&quot;GA&quot;&gt;Georgia&lt;/option&gt;
+      &lt;option value=&quot;HI&quot;&gt;Hawaii&lt;/option&gt;
+      &lt;option value=&quot;ID&quot;&gt;Idaho&lt;/option&gt;
+      &lt;option value=&quot;IL&quot;&gt;Illinois&lt;/option&gt;
+      &lt;option value=&quot;IN&quot;&gt;Indiana&lt;/option&gt;
+      &lt;option value=&quot;IA&quot;&gt;Iowa&lt;/option&gt;
+      &lt;option value=&quot;KS&quot;&gt;Kansas&lt;/option&gt;
+      &lt;option value=&quot;KY&quot;&gt;Kentucky&lt;/option&gt;
+      &lt;option value=&quot;LA&quot;&gt;Louisiana&lt;/option&gt;
+      &lt;option value=&quot;ME&quot;&gt;Maine&lt;/option&gt;
+      &lt;option value=&quot;MD&quot;&gt;Maryland&lt;/option&gt;
+      &lt;option value=&quot;MA&quot;&gt;Massachusetts&lt;/option&gt;
+      &lt;option value=&quot;MI&quot;&gt;Michigan&lt;/option&gt;
+      &lt;option value=&quot;MN&quot;&gt;Minnesota&lt;/option&gt;
+      &lt;option value=&quot;MS&quot;&gt;Mississippi&lt;/option&gt;
+      &lt;option value=&quot;MO&quot;&gt;Missouri&lt;/option&gt;
+      &lt;option value=&quot;MT&quot;&gt;Montana&lt;/option&gt;
+      &lt;option value=&quot;NE&quot;&gt;Nebraska&lt;/option&gt;
+      &lt;option value=&quot;NV&quot;&gt;Nevada&lt;/option&gt;
+      &lt;option value=&quot;NH&quot;&gt;New Hampshire&lt;/option&gt;
+      &lt;option value=&quot;NJ&quot;&gt;New Jersey&lt;/option&gt;
+      &lt;option value=&quot;NM&quot;&gt;New Mexico&lt;/option&gt;
+      &lt;option value=&quot;NY&quot;&gt;New York&lt;/option&gt;
+      &lt;option value=&quot;NC&quot;&gt;North Carolina&lt;/option&gt;
+      &lt;option value=&quot;ND&quot;&gt;North Dakota&lt;/option&gt;
+      &lt;option value=&quot;OH&quot;&gt;Ohio&lt;/option&gt;
+      &lt;option value=&quot;OK&quot;&gt;Oklahoma&lt;/option&gt;
+      &lt;option value=&quot;OR&quot;&gt;Oregon&lt;/option&gt;
+      &lt;option value=&quot;PA&quot;&gt;Pennsylvania&lt;/option&gt;
+      &lt;option value=&quot;PR&quot;&gt;Puerto Rico&lt;/option&gt;
+      &lt;option value=&quot;RI&quot;&gt;Rhode Island&lt;/option&gt;
+      &lt;option value=&quot;SC&quot;&gt;South Carolina&lt;/option&gt;
+      &lt;option value=&quot;SD&quot;&gt;South Dakota&lt;/option&gt;
+      &lt;option value=&quot;TN&quot;&gt;Tennessee&lt;/option&gt;
+      &lt;option value=&quot;TX&quot;&gt;Texas&lt;/option&gt;
+      &lt;option value=&quot;UT&quot;&gt;Utah&lt;/option&gt;
+      &lt;option value=&quot;VT&quot;&gt;Vermont&lt;/option&gt;
+      &lt;option value=&quot;VA&quot;&gt;Virginia&lt;/option&gt;
+      &lt;option value=&quot;WA&quot;&gt;Washington&lt;/option&gt;
+      &lt;option value=&quot;WV&quot;&gt;West Virginia&lt;/option&gt;
+      &lt;option value=&quot;WI&quot;&gt;Wisconsin&lt;/option&gt;
+      &lt;option value=&quot;WY&quot;&gt;Wyoming&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;!-- Zip --&gt;
+    &lt;label for=&quot;contributor_zip&quot;&gt;Zip&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[zip]&quot; id=&quot;contributor_zip&quot;&gt;
+  &lt;/fieldset&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Employer Information&lt;/legend&gt;
+
+    &lt;!-- Employer --&gt;
+    &lt;label for=&quot;contributor_employer&quot;&gt;Employer&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[employer]&quot; id=&quot;contributor_employer&quot;&gt;
+
+    &lt;!-- Occupation --&gt;
+    &lt;label for=&quot;contributor_occupation&quot;&gt;Occupation&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;contributor[occupation]&quot; id=&quot;contributor_occupation&quot;&gt;
+  &lt;/fieldset&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Payment Method&lt;/legend&gt;
+
+    &lt;!-- Bank Transfer --&gt;
+    &lt;label class=&quot;rtm-inline&quot;&gt;
+      &lt;input type=&quot;radio&quot; name=&quot;contributor[payment_method_choice]&quot; value=&quot;ach&quot; checked&gt; Bank Transfer
+    &lt;/label&gt;
+
+    &lt;!-- Debit / Credit Card --&gt;
+    &lt;label class=&quot;rtm-inline&quot;&gt;
+      &lt;input type=&quot;radio&quot; name=&quot;contributor[payment_method_choice]&quot; value=&quot;card&quot;&gt; Debit / Credit Card
+    &lt;/label&gt;
+
+    &lt;!-- ACH Fields --&gt;
+    &lt;div class=&quot;ach-fields rtm-row&quot;&gt;
+      &lt;!-- Routing Number --&gt;
+      &lt;label for=&quot;contributor_routing_number&quot;&gt;Routing Number&lt;/label&gt;
+      &lt;input type=&quot;text&quot; name=&quot;contributor[routing_number]&quot; id=&quot;contributor_routing_number&quot;&gt;
+
+      &lt;!-- Account Number --&gt;
+      &lt;label for=&quot;contributor_account_number&quot;&gt;Account Number&lt;/label&gt;
+      &lt;input type=&quot;text&quot; name=&quot;contributor[account_number]&quot; id=&quot;contributor_account_number&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Card Fields --&gt;
+    &lt;div class=&quot;card-fields rtm-row&quot;&gt;
+      &lt;!-- Number --&gt;
+      &lt;label for=&quot;contributor_cc_number&quot;&gt;Card Number&lt;/label&gt;
+      &lt;input type=&quot;text&quot; id=&quot;contributor_cc_number&quot;&gt;
+
+      &lt;!-- Expiration --&gt;
+      &lt;label for=&quot;contributor_cc_expiration&quot;&gt;Expiration&lt;/label&gt;
+      &lt;input type=&quot;text&quot; name=&quot;contributor[cc_expiration]&quot; id=&quot;contributor_cc_expiration&quot;&gt;
+
+      &lt;!-- CVV --&gt;
+      &lt;label for=&quot;contributor_cc_cvv&quot;&gt;CVV&lt;/label&gt;
+      &lt;input type=&quot;text&quot; id=&quot;contributor_cc_cvv&quot;&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Contribution Information&lt;/legend&gt;
+
+    &lt;label&gt;Select a contribution amount:&lt;/label&gt;
+
+    &lt;!-- $5 --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;contributor[amount_choice]&quot; id=&quot;contributor_amount_5&quot; value=&quot;5&quot;&gt;
+    &lt;label for=&quot;contributor_amount_5&quot;&gt;$5&lt;/label&gt;
+
+    &lt;!-- $50 --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;contributor[amount_choice]&quot; id=&quot;contributor_amount_50&quot; value=&quot;50&quot;&gt;
+    &lt;label for=&quot;contributor_amount_50&quot;&gt;$50&lt;/label&gt;
+
+    &lt;!-- $100 --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;contributor[amount_choice]&quot; id=&quot;contributor_amount_100&quot; value=&quot;100&quot;&gt;
+    &lt;label for=&quot;contributor_amount_100&quot;&gt;$100&lt;/label&gt;
+
+    &lt;!-- $250 --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;contributor[amount_choice]&quot; id=&quot;contributor_amount_250&quot; value=&quot;250&quot;&gt;
+    &lt;label for=&quot;contributor_amount_250&quot;&gt;$250&lt;/label&gt;
+
+    &lt;!-- $500 --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;contributor[amount_choice]&quot; id=&quot;contributor_amount_500&quot; value=&quot;500&quot;&gt;
+    &lt;label for=&quot;contributor_amount_500&quot;&gt;$500&lt;/label&gt;
+
+    &lt;!-- $1,000 --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;contributor[amount_choice]&quot; id=&quot;contributor_amount_1000&quot; value=&quot;1000&quot;&gt;
+    &lt;label for=&quot;contributor_amount_1000&quot;&gt;$1,000&lt;/label&gt;
+
+    &lt;!-- $2,000 --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;contributor[amount_choice]&quot; id=&quot;contributor_amount_2000&quot; value=&quot;2000&quot;&gt;
+    &lt;label for=&quot;contributor_amount_2000&quot;&gt;$2,000&lt;/label&gt;
+
+    &lt;!-- $2,600 --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;contributor[amount_choice]&quot; id=&quot;contributor_amount_2600&quot; value=&quot;2600&quot;&gt;
+    &lt;label for=&quot;contributor_amount_2600&quot;&gt;$2,600&lt;/label&gt;
+
+    &lt;!-- Other Amount --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;contributor[amount_choice]&quot; id=&quot;contributor_amount_other&quot; value=&quot;other&quot;&gt;
+    &lt;label for=&quot;contributor_amount_other&quot; class=&quot;rtm-inline&quot;&gt;
+      Other: &lt;input type=&quot;text&quot; name=&quot;contributor[amount_other]&quot; placeholder=&quot;$&quot;&gt;
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Contribution Frequency&lt;/legend&gt;
+
+    &lt;!-- One-Time Contribution --&gt;
+    &lt;label class=&quot;rtm-radio-indent&quot;&gt;
+      &lt;input type=&quot;radio&quot; name=&quot;contributor[recurring]&quot; value=&quot;false&quot; checked&gt;
+      I would like to make a one-time contribution
+    &lt;/label&gt;
+
+    &lt;!-- Recurring Contribution --&gt;
+    &lt;label class=&quot;rtm-radio-indent&quot;&gt;
+      &lt;input type=&quot;radio&quot; name=&quot;contributor[recurring]&quot; value=&quot;true&quot;&gt; Make this contribution monthly:
+      &lt;select name=&quot;contributor[frequency_interval]&quot;&gt;
+        &lt;option value=&quot;election_day&quot;&gt;until Election Day&lt;/option&gt;
+        &lt;option value=&quot;1_months&quot;&gt;for 1 month&lt;/option&gt;
+        &lt;option value=&quot;2_months&quot;&gt;for 2 months&lt;/option&gt;
+        &lt;option value=&quot;3_months&quot;&gt;for 3 months&lt;/option&gt;
+        &lt;option value=&quot;4_months&quot;&gt;for 4 months&lt;/option&gt;
+        &lt;option value=&quot;5_months&quot;&gt;for 5 months&lt;/option&gt;
+        &lt;option value=&quot;6_months&quot;&gt;for 6 months&lt;/option&gt;
+        &lt;option value=&quot;7_months&quot;&gt;for 7 months&lt;/option&gt;
+        &lt;option value=&quot;8_months&quot;&gt;for 8 months&lt;/option&gt;
+        &lt;option value=&quot;9_months&quot;&gt;for 9 months&lt;/option&gt;
+        &lt;option value=&quot;10_months&quot;&gt;for 10 months&lt;/option&gt;
+        &lt;option value=&quot;11_months&quot;&gt;for 11 months&lt;/option&gt;
+        &lt;option value=&quot;12_months&quot;&gt;for 12 months&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+
+  &lt;!-- Processing errors will show up as text inside of this div --&gt;
+  &lt;div id=&quot;contribution_form_errors&quot; style=&quot;display: none;&quot;&gt;&lt;/div&gt;
+
+  &lt;!-- Contribute button --&gt;
+  &lt;input id=&quot;submit_contribution&quot; name=&quot;commit&quot; type=&quot;submit&quot; value=&quot;Contribute&quot; data-disable-with=&quot;Processing...&quot;&gt;
+&lt;/form&gt;
+
+&lt;!-- Make sure and include jQuery before the RTM processing script --&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Include the RTM processing script --&gt;
+&lt;script src=&quot;rtm-processing.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+    <h3>Required fields and values</h3>
+    <table class="text-small">
+      <tr>
+        <th>Field</th>
+        <th>Name Attribute</th>
+        <th>ID Attribute</th>
+        <th>Type</th>
+        <th>Validations</th>
+      </tr>
+      <tr>
+        <td>First Name</td>
+        <td>contributor[first_name]</td>
+        <td>contributor_first_name</td>
+        <td>String</td>
+        <td>Required</td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td>contributor[last_name]</td>
+        <td>contributor_last_name</td>
+        <td>String</td>
+        <td>Required</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>contributor[email]</td>
+        <td>contributor_email</td>
+        <td>String</td>
+        <td>
+          Required<br />
+          Valid email address
+        </td>
+      </tr>
+      <tr>
+        <td>Phone Number</td>
+        <td>contributor[phone]</td>
+        <td>contributor_phone</td>
+        <td>String</td>
+        <td>Required</td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>contributor[address_1]</td>
+        <td>contributor_address_1</td>
+        <td>String</td>
+        <td>Required</td>
+      </tr>
+      <tr>
+        <td>Address 2</td>
+        <td>contributor[address_2]</td>
+        <td>contributor_address_2</td>
+        <td>String</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td>contributor[city]</td>
+        <td>contributor_city</td>
+        <td>String</td>
+        <td>Required</td>
+      </tr>
+      <tr>
+        <td>State</td>
+        <td>contributor[state]</td>
+        <td>contributor_state</td>
+        <td>String (2)</td>
+        <td>Required</td>
+      </tr>
+      <tr>
+        <td>Zip</td>
+        <td>contributor[zip]</td>
+        <td>contributor_zip</td>
+        <td>String</td>
+        <td>
+          Required<br />
+          ##### or #####-####
+        </td>
+      </tr>
+      <tr>
+        <td>Employer</td>
+        <td>contributor[employer]</td>
+        <td>contributor_employer</td>
+        <td>String</td>
+        <td>Required</td>
+      </tr>
+      <tr>
+        <td>Occupation</td>
+        <td>contributor[occupation]</td>
+        <td>contributor_occupation</td>
+        <td>String</td>
+        <td>Required</td>
+      </tr>
+      <tr>
+        <td>Payment Method</td>
+        <td>contributor[payment_method_choice]</td>
+        <td>contributor_payment_method_choice</td>
+        <td>String</td>
+        <td>
+          Required<br />
+          "ach" or "card"
+        </td>
+      </tr>
+      <tr>
+        <td>Routing Number</td>
+        <td>contributor[routing_number]</td>
+        <td>contributor_routing_number</td>
+        <td>Integer (9)</td>
+        <td>Required if ACH</td>
+      </tr>
+      <tr>
+        <td>Account Number</td>
+        <td>contributor[account_number]</td>
+        <td>contributor_account_number</td>
+        <td>Integer (4—17)</td>
+        <td>Required if ACH</td>
+      </tr>
+      <tr>
+        <td>Card Number</td>
+        <td>&nbsp;</td>
+        <td>contributor_cc_number</td>
+        <td>String</td>
+        <td>Required if Card</td>
+      </tr>
+      <tr>
+        <td>Card Expiration</td>
+        <td>contributor[cc_expiration]</td>
+        <td>contributor_cc_expiration</td>
+        <td>String</td>
+        <td>
+          Required if Card<br />
+          MM/YY
+        </td>
+      </tr>
+      <tr>
+        <td>Card CVV</td>
+        <td>&nbsp;</td>
+        <td>contributor_cc_cvv</td>
+        <td>Integer (3—4)</td>
+        <td>Required if Card</td>
+      </tr>
+      <tr>
+        <td>Amount</td>
+        <td>contributor[amount_choice]</td>
+        <td>contributor_amount_choice</td>
+        <td>Integer</td>
+        <td>
+          Required<br />
+          Integer in dollars or "other"
+        </td>
+      </tr>
+      <tr>
+        <td>Amount Other</td>
+        <td>contributor[amount_other]</td>
+        <td>contributor_amount_other</td>
+        <td>Integer</td>
+        <td>
+          Required if amount is "other"<br />
+          Integer in dollars
+        </td>
+      </tr>
+      <tr>
+        <td>Recurring</td>
+        <td>contributor[recurring]</td>
+        <td>contributor_recurring</td>
+        <td>Boolean</td>
+        <td>
+          Required<br />
+          "true" or "false"
+        </td>
+      </tr>
+      <tr>
+        <td>Frequency Interval</td>
+        <td>contributor[frequency_interval]</td>
+        <td>contributor_frequency_interval</td>
+        <td>String</td>
+        <td>
+          Required if Recurring<br />
+          "election_day" or "1_months".."12_months"
+        </td>
+      </tr>
+    </table>
+
+    <h3>Custom form assets</h3>
+
+    <p>
+      <strong>Processing Javascript <small>**REQUIRED**</small></strong
+      ><br />
+      The <code>rtm-processing.js</code> is required for processing
+      contributions. This provides form validations, card tokenization, toggling
+      ach and card payments, and contribution processing.
+    </p>
+    <pre><code class="language-markup">&lt;script src=&quot;rtm-processing.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+    <p>
+      <strong>Theme Stylesheet <small>**OPTIONAL**</small></strong
+      ><br />
+      The <code>rtm-theme.css</code> is not required. It provides basic styling
+      of the contribution form very similar to what you would get with the form
+      embed code. Without any styling the form is still 100% functional and will
+      inherit the styles of your website. You can either create your own styles
+      completely from scratch, or modify the RTM theme to closer match the
+      design of your website.
+    </p>
+    <pre><code class="language-markup">&lt;link href=&quot;rtm-theme.css&quot; media=&quot;all&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
+
+    <h3>Set values with hidden fields instead of text fields</h3>
+    <p>
+      Sometimes it is desirable to prefill the contribution amount instead of
+      giving choices. This can be done by creating a hidden field with the
+      amount filled in. So if you wanted to create a contribution form for
+      people to contribute $25, you would remove all of the amount fields and
+      instead add the following hidden input:
+    </p>
+    <pre><code class="language-markup">&lt;input type=&quot;hidden&quot; name=&quot;contributor[amount]&quot; value=&quot;25&quot;&gt;</code></pre>
+
+    <p>
+      This technique can also be used for other fields, such as setting the
+      frequency to one-time for all contributions or setting the duration to
+      always go until next Election Day.
+    </p>
+
+    <h3>Adding custom fields to the contribution form</h3>
+    <p>
+      If you would like to add additional fields to the contribution, you can!
+      Just set the input name to "custom[...]" with whatever you would like to
+      call it inside of the square braces. Make sure and use lowercase with
+      underscores separating the words for your input name:
+    </p>
+    <pre><code class="language-markup">&lt;input type=&quot;text&quot; name=&quot;custom[your_name_here]&quot;&gt;</code></pre>
+
+    <h3>Error messages</h3>
+    <p>
+      Field error messages will appear below the fields on validations. These
+      will appear inside of
+      <code>&lt;label class=&quot;error&quot;&gt;</code> tags. Additionally, an
+      <code>.error</code> class will be applied to invalid inputs for styling
+      purposes.
+    </p>
+
+    <h3>Testing Contributions</h3>
+    <p>
+      For development purposes, you can set the form action to
+      <code>https://raisethemoney.com/testing</code>. This will return
+      validation errors or success, without actually processing transactions.
+    </p>
+
+    <br />
+    <hr />
+
+    <p>&copy; 2023 Raise The Money, Inc.</p>
+
+    <script src="./documentation.js"></script>
+  </body>
+</html>

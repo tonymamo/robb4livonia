@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 
 import ContactCTA from "../components/ContactCTA.astro"
 import Hero from "../components/Hero.astro"
+import Icon from "../components/Icon.astro"
 
 const inputClasses = "block w-full rounded-[3px] border p-2.5 focus:ring"
 ---
@@ -34,7 +35,7 @@ const inputClasses = "block w-full rounded-[3px] border p-2.5 focus:ring"
               </label>
             </p>
             <div class="mb-4">
-              <label for="name" class="mb-2 block">Your name *</label>
+              <label for="name" class="mb-2 block">Name *</label>
               <input
                 type="text"
                 id="name"
@@ -45,7 +46,7 @@ const inputClasses = "block w-full rounded-[3px] border p-2.5 focus:ring"
             </div>
 
             <div class="mb-4">
-              <label for="email" class="mb-2 block">Your email *</label>
+              <label for="email" class="mb-2 block">Email *</label>
               <input
                 type="email"
                 name="email"
@@ -55,7 +56,7 @@ const inputClasses = "block w-full rounded-[3px] border p-2.5 focus:ring"
               />
             </div>
             <div class="mb-4">
-              <label for="phone" class="mb-2 block">Your phone number *</label>
+              <label for="phone" class="mb-2 block">Phone number *</label>
               <input
                 type="tel"
                 name="phone"
@@ -65,7 +66,7 @@ const inputClasses = "block w-full rounded-[3px] border p-2.5 focus:ring"
               />
             </div>
             <div class="mb-4">
-              <label for="address" class="mb-2 block">Your address *</label>
+              <label for="address" class="mb-2 block">Address *</label>
               <input
                 type="text"
                 name="address"
@@ -160,8 +161,8 @@ const inputClasses = "block w-full rounded-[3px] border p-2.5 focus:ring"
             <p class="">
               <button
                 type="submit"
-                class="rounded-full border-2 px-4 py-2 transition-colors focus:ring bg-[var(--accent-regular)] text-white hover:bg-[var(--accent-regular)]"
-                >Submit</button
+                class="rounded-full px-4 py-2 focus:ring bg-[var(--accent-regular)] text-white hover:bg-[var(--accent-regular)]"
+                >Submit <Icon icon="paper-plane-tilt" size="1.2em" /></button
               >
             </p>
           </form>
