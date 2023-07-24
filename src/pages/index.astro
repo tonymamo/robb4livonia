@@ -9,8 +9,14 @@ import Icon from "../components/Icon.astro"
 import ContactCTA from "../components/ContactCTA.astro"
 
 import Platform from "../components/Platform.astro"
+import Events from "../components/Events.astro"
 
 const endorsements = [
+  {
+    name: "Livonia Professional Firefighters",
+    image: "/assets/endorsements/iaff.png",
+    title: "IAFF #1164",
+  },
   {
     name: "Jim Jolly",
     image: "/assets/endorsements/jimjolly.jpeg",
@@ -29,6 +35,11 @@ const endorsements = [
   {
     name: "Matt Koleszar",
     image: "/assets/endorsements/mattkoleszar.jpeg",
+    title: "State Representative",
+  },
+  {
+    name: "Laurie Pohutsky",
+    image: "/assets/endorsements/lauriepohutsky.jpg",
     title: "State Representative",
   },
   {
@@ -165,7 +176,7 @@ const endorsements = [
         </section>
       </main>
     </div>
-
+    <Events />
     <ContactCTA />
   </div>
 </BaseLayout>

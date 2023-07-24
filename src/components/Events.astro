@@ -1,0 +1,60 @@
+---
+import { Image } from "@astrojs/image/components"
+import Icon from "./Icon.astro"
+---
+
+<section>
+  <h4 class="text-4xl">Upcoming Events</h4>
+  <figure>
+    <Image
+      src="/assets/Haldane 2.jpg"
+      alt="Flyer for the Haldane event on July 30th"
+      width={600}
+      height={776}
+      format="webp"
+    />
+    <figcaption>
+      <a href="/assets/HaldaneJuly30.jpg" class="text-2xl hover:underline"
+        >View full size <Icon icon="arrow-square-out" size="1em" /></a
+      >
+    </figcaption>
+  </figure>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 5rem 1.5rem;
+    background-color: var(--gray-999_40);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    text-align: center;
+    max-width: 15ch;
+  }
+
+  img {
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  figcaption a {
+    text-align: center;
+    display: block;
+    padding: 1rem;
+  }
+
+  @media (min-width: 50em) {
+    section {
+      padding: 7.5rem;
+    }
+
+    h2 {
+      font-size: var(--text-3xl);
+    }
+  }
+</style>
